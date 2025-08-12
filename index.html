@@ -1,4 +1,4 @@
-<!doctype html>
+!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -11,7 +11,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="JMA Comércio e Importação Ltda — Locação de Equipamentos Médicos" />
   <meta property="og:description" content="Locação de equipamentos médicos com suporte completo, prazos confiáveis e atendimento consultivo." />
-  <meta property="og:image" content="/logo-jma.svg" />
+  <meta property="og:image" content="https://www.jmaequipamentos.com.br/og-image.jpg" />
   <meta property="og:url" content="https://www.jmaequipamentos.com.br" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -33,64 +33,32 @@
   }
   </script>
 
+  <!-- Guardião anti-MetaMask/Web3 (antes de tudo) -->
+  <script>
+    (function(){
+      try {
+        window.__web3ErrorsIgnored = 0;
+        const isWeb3 = m => { try { return /metamask|ethereum|web3|failed to connect to metamask/i.test(String(m||'')); } catch(_) { return false; } };
+        addEventListener('error', e=>{ const m=e?.message||e?.error?.message||''; if(isWeb3(m)){__web3ErrorsIgnored++; e.preventDefault?.(); console.warn('[Web3] ignorado:', m); } }, true);
+        addEventListener('unhandledrejection', e=>{ const r=e?.reason?.message||e?.reason||''; if(isWeb3(r)){__web3ErrorsIgnored++; e.preventDefault?.(); console.warn('[Web3] rejeição ignorada:', r);} }, true);
+      } catch(err){ console.warn('Guardião Web3 falhou', err); }
+    })();
+  </script>
+
   <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              600: '#004aad', /* Azul cobalto do logo */
-              700: '#003b85',
-              800: '#002b63'
-            }
-          }
-        }
-      }
-    }
+    tailwind.config = { theme: { extend: { colors: { brand: { 50:'#f0f6ff',100:'#e6f0ff',600:'#004aad',700:'#003b85',800:'#002b63' } } } } }
   </script>
-
   <style>
-    html { scroll-behavior: smooth; }
+    html{scroll-behavior:smooth}
+    /* Helper p/ imagens consistentes */
+    .img-frame{ @apply aspect-[4/3] bg-white border border-slate-200 rounded-2xl overflow-hidden; }
+    .img-fit{ object-fit: contain; width:100%; height:100%; }
   </style>
-
-  <!-- Proteção contra erros Web3/MetaMask em ambientes sandbox -->
-  <script>
-    (function(){
-      // Contador global para testes
-      window.__web3ErrorsIgnored = 0;
-
-      function isWeb3Message(msg){
-        try { return /metamask|ethereum|web3|failed to connect to metamask/i.test(String(msg||'')); } catch(_) { return false; }
-      }
-
-      // Captura erros síncronos
-      window.addEventListener('error', function (e) {
-        var msg = (e && e.message) || (e && e.error && e.error.message) || '';
-        if (isWeb3Message(msg)) {
-          window.__web3ErrorsIgnored++;
-          console.warn('[Web3] Erro ignorado:', msg);
-          if (e && typeof e.preventDefault === 'function') e.preventDefault();
-        }
-      }, true);
-
-      // Captura promessas rejeitadas
-      window.addEventListener('unhandledrejection', function (e) {
-        var reason = (e && e.reason && (e.reason.message || e.reason)) || '';
-        if (isWeb3Message(reason)) {
-          window.__web3ErrorsIgnored++;
-          console.warn('[Web3] Rejeição ignorada:', reason);
-          if (e && typeof e.preventDefault === 'function') e.preventDefault();
-        }
-      }, true);
-    })();
-  </script>
 </head>
 <body class="antialiased text-slate-800">
-  <!-- Barra de anúncio -->
+  <!-- Barra topo -->
   <div class="bg-brand-600 text-white text-center text-sm py-2">
     <span>Locação de equipamentos médicos com implantação rápida — </span>
     <a href="#contato" class="underline font-medium">fale com a gente</a>
@@ -100,12 +68,14 @@
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-100">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex items-center justify-between h-16">
-        <a href="#inicio" class="flex items-center gap-2" aria-label="Ir para o início">
-          <img src="/logo-jma.svg" alt="Logo JMA" class="w-10 h-10" />
-          <span class="font-semibold">JMA Comércio e Importação Ltda</span>
+        <a href="#inicio" class="flex items-center gap-3" aria-label="Ir para o início">
+          <!-- Logo maior e sem texto redundante -->
+          <img src="./logo-jma.svg" alt="JMA" class="h-12 md:h-14 w-auto" onerror="this.src='./logo-jma.png'"/>
         </a>
         <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
           <a href="#servicos" class="hover:text-brand-700">Serviços</a>
+          <a href="#galeria" class="hover:text-brand-700">Equipamentos</a>
+          <a href="#marcas" class="hover:text-brand-700">Marcas</a>
           <a href="#sobre" class="hover:text-brand-700">Sobre</a>
           <a href="#contato" class="hover:text-brand-700">Contato</a>
         </nav>
@@ -120,16 +90,18 @@
     <div id="mobileMenu" data-testid="mobileMenu" class="md:hidden hidden border-t border-slate-100 bg-white">
       <nav class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3" aria-label="Menu móvel">
         <a href="#servicos" class="py-2">Serviços</a>
+        <a href="#galeria" class="py-2">Equipamentos</a>
+        <a href="#marcas" class="py-2">Marcas</a>
         <a href="#sobre" class="py-2">Sobre</a>
         <a href="#contato" class="py-2">Contato</a>
       </nav>
     </div>
   </header>
 
-    <!-- Hero (fotos dos equipamentos) -->
+   <!-- Hero (fotos dos equipamentos) -->
   <section id="inicio" class="relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h1 class="text-3xl md:text-5xl font-semibold leading-tight">Locação de equipamentos médicos, simples e confiável</h1>
           <p class="mt-4 text-slate-600 md:text-lg">Fornecemos aparelhos prontos para uso, com instalação, manutenção preventiva e troca rápida. Você foca no paciente; nós cuidamos da tecnologia.</p>
@@ -139,14 +111,8 @@
           </div>
         </div>
         <div class="grid grid-cols-2 gap-4">
-          <picture>
-            <source type="image/webp" srcset="/tesla-m3-480.webp 480w, /tesla-m3-800.webp 800w, /tesla-m3-1200.webp 1200w, /tesla-m3-1600.webp 1600w" sizes="(max-width: 768px) 50vw, 100vw">
-            <img src="/tesla-m3-800.jpg" alt="Monitor Tesla M3 para ambientes MRI" class="w-full h-auto rounded-2xl border border-slate-200 shadow-sm" loading="lazy">
-          </picture>
-          <picture>
-            <source type="image/webp" srcset="/hospital-bed-480.webp 480w, /hospital-bed-800.webp 800w, /hospital-bed-1200.webp 1200w, /hospital-bed-1600.webp 1600w" sizes="(max-width: 768px) 50vw, 100vw">
-            <img src="/hospital-bed-800.jpg" alt="Leito hospitalar articulado com painel de controle" class="w-full h-auto rounded-2xl border border-slate-200 shadow-sm" loading="lazy">
-          </picture>
+          <div class="img-frame"><img src="/tesla-m3-800.jpg" alt="Monitor Tesla M3 para ambientes MRI" class="img-fit" loading="lazy"></div>
+          <div class="img-frame"><img src="/hospital-bed-800.jpg" alt="Leito hospitalar articulado" class="img-fit" loading="lazy"></div>
         </div>
       </div>
     </div>
