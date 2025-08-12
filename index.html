@@ -126,23 +126,57 @@
     </div>
   </header>
 
-  <!-- Hero -->
+    <!-- Hero (fotos dos equipamentos) -->
   <section id="inicio" class="relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h1 class="text-3xl md:text-5xl font-semibold leading-tight">Locação de equipamentos médicos, simples e confiável</h1>
-        <p class="mt-4 text-slate-600 md:text-lg">Fornecemos aparelhos prontos para uso, com instalação, manutenção preventiva e troca rápida. Você foca no paciente; nós cuidamos da tecnologia.</p>
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
-          <a href="#contato" class="px-5 py-3 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition text-center">Quero falar com vocês</a>
-          <a href="#servicos" class="px-5 py-3 rounded-xl border border-slate-300 hover:border-slate-400 transition text-center">Ver serviços</a>
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-3xl md:text-5xl font-semibold leading-tight">Locação de equipamentos médicos, simples e confiável</h1>
+          <p class="mt-4 text-slate-600 md:text-lg">Fornecemos aparelhos prontos para uso, com instalação, manutenção preventiva e troca rápida. Você foca no paciente; nós cuidamos da tecnologia.</p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="#contato" class="px-5 py-3 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition text-center">Quero falar com vocês</a>
+            <a href="#galeria" class="px-5 py-3 rounded-xl border border-slate-300 hover:border-slate-400 transition text-center">Ver equipamentos</a>
+          </div>
         </div>
-      </div>
-      <div class="relative">
-        <img src="/logo-jma.svg" alt="Logo JMA" class="max-w-full" />
+        <div class="grid grid-cols-2 gap-4">
+          <picture>
+            <source type="image/webp" srcset="./img/tesla-m3-480.webp 480w, ./img/tesla-m3-800.webp 800w, ./img/tesla-m3-1200.webp 1200w, ./img/tesla-m3-1600.webp 1600w" sizes="(max-width: 768px) 50vw, 100vw">
+            <img src="./img/tesla-m3-800.jpg" alt="Monitor Tesla M3 para ambientes MRI" class="w-full h-auto rounded-2xl border border-slate-200 shadow-sm" loading="lazy">
+          </picture>
+          <picture>
+            <source type="image/webp" srcset="./img/hospital-bed-480.webp 480w, ./img/hospital-bed-800.webp 800w, ./img/hospital-bed-1200.webp 1200w, ./img/hospital-bed-1600.webp 1600w" sizes="(max-width: 768px) 50vw, 100vw">
+            <img src="./img/hospital-bed-800.jpg" alt="Leito hospitalar articulado com painel de controle" class="w-full h-auto rounded-2xl border border-slate-200 shadow-sm" loading="lazy">
+          </picture>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Galeria de equipamentos -->
+  <section id="galeria" class="py-12 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold">Equipamentos em destaque</h2>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
+          <picture>
+            <source type="image/webp" srcset="./img/tesla-m3-800.webp 800w, ./img/tesla-m3-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 33vw">
+            <img src="./img/tesla-m3-800.jpg" alt="Monitor Tesla M3 para ambientes MRI" class="w-full h-auto rounded-xl" loading="lazy">
+          </picture>
+          <h3 class="mt-3 font-semibold">Monitor multiparamétrico MRI</h3>
+          <p class="text-sm text-slate-600">Indicado para salas de ressonância magnética, com telemetria e interface amigável.</p>
+        </article>
+        <article class="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
+          <picture>
+            <source type="image/webp" srcset="./img/hospital-bed-800.webp 800w, ./img/hospital-bed-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 33vw">
+            <img src="./img/hospital-bed-800.jpg" alt="Leito hospitalar articulado" class="w-full h-auto rounded-xl" loading="lazy">
+          </picture>
+          <h3 class="mt-3 font-semibold">Leito hospitalar articulado</h3>
+          <p class="text-sm text-slate-600">Cama com múltiplos ajustes elétricos para maior conforto e segurança do paciente.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  
   <!-- Serviços -->
   <section id="servicos" class="py-20 bg-slate-50">
     <div class="max-w-6xl mx-auto px-4">
