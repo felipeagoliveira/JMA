@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JMA Comércio e Importação Ltda — Locação de Equipamentos Médicos</title>
+  <meta name="description" content="Especialistas em locação de equipamentos médicos, com implantação ágil, manutenção preventiva e suporte dedicado para hospitais, clínicas e profissionais de saúde." />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JMA Comércio e Importação Ltda — Locação de Equipamentos Médicos" />
+  <meta property="og:description" content="Locação de equipamentos médicos com suporte completo, prazos confiáveis e atendimento consultivo." />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://www.jmaequipamentos.com.br" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JMA Comércio e Importação Ltda",
+    "url": "https://www.jmaequipamentos.com.br",
+    "logo": "https://www.jmaequipamentos.com.br/logo.svg",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+55 81 99230-0499",
+      "contactType": "customer service",
+      "areaServed": "BR",
+      "availableLanguage": ["Portuguese"]
+    }]
+  }
+  </script>
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              600: '#004aad', /* Azul cobalto do logo */
+              700: '#003b85',
+              800: '#002b63'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+
+  <!-- Proteção contra erros Web3/MetaMask em ambientes sandbox -->
+  <script>
+    (function(){
+      // Contador global para testes
+      window.__web3ErrorsIgnored = 0;
+
+      function isWeb3Message(msg){
+        try { return /metamask|ethereum|web3|failed to connect to metamask/i.test(String(msg||'')); } catch(_) { return false; }
+      }
+
+      // Captura erros síncronos
+      window.addEventListener('error', function (e) {
+        var msg = (e && e.message) || (e && e.error && e.error.message) || '';
+        if (isWeb3Message(msg)) {
+          window.__web3ErrorsIgnored++;
+          console.warn('[Web3] Erro ignorado:', msg);
+          if (e && typeof e.preventDefault === 'function') e.preventDefault();
+        }
+      }, true);
+
+      // Captura promessas rejeitadas
+      window.addEventListener('unhandledrejection', function (e) {
+        var reason = (e && e.reason && (e.reason.message || e.reason)) || '';
+        if (isWeb3Message(reason)) {
+          window.__web3ErrorsIgnored++;
+          console.warn('[Web3] Rejeição ignorada:', reason);
+          if (e && typeof e.preventDefault === 'function') e.preventDefault();
+        }
+      }, true);
+    })();
+  </script>
+</head>
+<body class="antialiased text-slate-800">
+  <!-- Barra de anúncio -->
+  <div class="bg-brand-600 text-white text-center text-sm py-2">
+    <span>Locação de equipamentos médicos com implantação rápida — </span>
+    <a href="#contato" class="underline font-medium">fale com a gente</a>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="#inicio" class="flex items-center gap-2" aria-label="Ir para o início">
+          <img src="/logo.svg" alt="Logo JMA" class="w-10 h-10" />
+          <span class="font-semibold">JMA Comércio e Importação Ltda</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
+          <a href="#servicos" class="hover:text-brand-700">Serviços</a>
+          <a href="#sobre" class="hover:text-brand-700">Sobre</a>
+          <a href="#contato" class="hover:text-brand-700">Contato</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#contato" class="hidden md:inline-block px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition">Solicitar proposta</a>
+          <button id="menuBtn" data-testid="menuBtn" class="md:hidden p-2 rounded-lg border border-slate-200" aria-label="Abrir menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobileMenu" data-testid="mobileMenu" class="md:hidden hidden border-t border-slate-100 bg-white">
+      <nav class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3" aria-label="Menu móvel">
+        <a href="#servicos" class="py-2">Serviços</a>
+        <a href="#sobre" class="py-2">Sobre</a>
+        <a href="#contato" class="py-2">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-semibold leading-tight">Locação de equipamentos médicos, simples e confiável</h1>
+        <p class="mt-4 text-slate-600 md:text-lg">Fornecemos aparelhos prontos para uso, com instalação, manutenção preventiva e troca rápida. Você foca no paciente; nós cuidamos da tecnologia.</p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a href="#contato" class="px-5 py-3 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition text-center">Quero falar com vocês</a>
+          <a href="#servicos" class="px-5 py-3 rounded-xl border border-slate-300 hover:border-slate-400 transition text-center">Ver serviços</a>
+        </div>
+      </div>
+      <div class="relative">
+        <img src="/logo.svg" alt="Logo JMA" class="max-w-full" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl md:text-3xl font-semibold">Serviços</h2>
+        <p class="mt-2 text-slate-600">Soluções completas para operação sem atritos.</p>
+      </div>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm" data-testid="card-locacao">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center mb-4">
+            <span class="text-brand-700">✓</span>
+          </div>
+          <h3 class="font-semibold">Locação de Equipamentos</h3>
+          <p class="mt-2 text-sm text-slate-600">Parque atualizado, contratos flexíveis e disponibilidade garantida.</p>
+        </article>
+        <article class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center mb-4">
+            <span class="text-brand-700">✓</span>
+          </div>
+          <h3 class="font-semibold">Instalação & Treinamento</h3>
+          <p class="mt-2 text-sm text-slate-600">Entrega, calibração e onboarding da equipe clínica.</p>
+        </article>
+        <article class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center mb-4">
+            <span class="text-brand-700">✓</span>
+          </div>
+          <h3 class="font-semibold">Manutenção Preventiva</h3>
+          <p class="mt-2 text-sm text-slate-600">Planos de manutenção e troca rápida para zero downtime.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-brand-100 to-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-2xl md:text-3xl font-semibold">Pronto para começar?</h3>
+      <p class="mt-2 text-slate-600">Envie uma mensagem e retornaremos ainda hoje.</p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#contato" class="px-5 py-3 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition">Solicitar proposta</a>
+        <a href="https://wa.me/5581992300499" target="_blank" rel="noopener" class="px-5 py-3 rounded-xl border border-slate-300 hover:border-slate-400 transition">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl md:text-3xl font-semibold">Contato</h2>
+        <p class="mt-2 text-slate-600">Prefere e-mail direto? <a href="mailto:contato@jmaequipamentos.com.br" class="text-brand-700 underline">contato@jmaequipamentos.com.br</a>.</p>
+      </div>
+      <!-- Formulário: abre o cliente de e-mail do usuário (mailto) -->
+      <form id="formContato" data-testid="formContato" class="mt-8 grid grid-cols-1 gap-4 max-w-2xl"
+            action="mailto:contato@jmaequipamentos.com.br" method="POST" novalidate>
+        <div>
+          <label class="block text-sm mb-1" for="nome">Nome</label>
+          <input required class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" type="text" id="nome" name="nome" placeholder="Seu nome" />
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-1" for="email">E-mail</label>
+            <input required class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" type="email" id="email" name="email" placeholder="voce@empresa.com" />
+          </div>
+          <div>
+            <label class="block text-sm mb-1" for="telefone">Telefone (opcional)</label>
+            <input class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" type="tel" id="telefone" name="telefone" placeholder="(81) 9 9999-9999" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="mensagem">Mensagem</label>
+          <textarea required class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-600" id="mensagem" name="mensagem" rows="5" placeholder="Como podemos ajudar?"></textarea>
+        </div>
+        <input type="hidden" name="origem" value="Site institucional" />
+        <button class="mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition" type="submit">
+          Enviar mensagem
+        </button>
+        <p id="statusMsg" data-testid="statusMsg" class="mt-2 text-sm text-slate-600" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="py-12 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <div class="font-semibold">JMA Comércio e Importação Ltda</div>
+        <p class="mt-2 text-slate-600">CNPJ 00.000.000/0001-00</p>
+        <p class="mt-1 text-slate-600">Rua Exemplo, 123 — Cidade/UF</p>
+      </div>
+      <div>
+        <div class="font-semibold">Links</div>
+        <ul class="mt-2 space-y-2">
+          <li><a href="#servicos" class="hover:text-brand-700">Serviços</a></li>
+          <li><a href="#sobre" class="hover:text-brand-700">Sobre</a></li>
+          <li><a href="#contato" class="hover:text-brand-700">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold">Contato</div>
+        <ul class="mt-2 space-y-2">
+          <li>E-mail: <a href="mailto:contato@jmaequipamentos.com.br" class="hover:text-brand-700">contato@jmaequipamentos.com.br</a></li>
+          <li>WhatsApp: <a href="https://wa.me/5581992300499" class="hover:text-brand-700">+55 81 99230-0499</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 text-center text-xs text-slate-500">© <span id="year" data-testid="year"></span> JMA Comércio e Importação Ltda. Todos os direitos reservados.</div>
+  </footer>
+
+  <!-- Instrução de implantação do logo (comentário)
+       Suba o arquivo "logo.svg" na raiz do seu domínio.
+       Ex.: https://www.jmaequipamentos.com.br/logo.svg. -->
+
+  <!-- JS -->
+  <script>
+    // Menu mobile
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('mobileMenu');
+      btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+    })();
+
+    // Ano no rodapé
+    (function(){
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+
+    // Envio via mailto: — abre o cliente de e-mail do usuário
+    (function(){
+      const form = document.getElementById('formContato');
+      const status = document.getElementById('statusMsg');
+      if (!form) return;
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = 'Preparando e-mail…';
+        const nome = document.getElementById('nome')?.value?.trim() || '';
+        const email = document.getElementById('email')?.value?.trim() || '';
+        const telefone = document.getElementById('telefone')?.value?.trim() || '';
+        const mensagem = document.getElementById('mensagem')?.value?.trim() || '';
+        const assunto = encodeURIComponent(`Contato do site — ${nome || 'Sem nome'}`);
+        const corpo = encodeURIComponent(`Nome: ${nome}\nE-mail: ${email}\nTelefone: ${telefone}\nOrigem: Site institucional\n\nMensagem:\n${mensagem}`);
+        const mailto = `mailto:contato@jmaequipamentos.com.br?subject=${assunto}&body=${corpo}`;
+        try {
+          window.location.href = mailto;
+          status.textContent = 'Abrindo seu cliente de e-mail…';
+        } catch (err) {
+          console.warn('Falha ao abrir mailto:', err);
+          status.textContent = 'Não foi possível abrir o e-mail automático. Escreva para contato@jmaequipamentos.com.br';
+        }
+      });
+    })();
+
+    // Suíte de testes leve (logs no console); NÃO alterar os testes existentes; adicionamos novos quando necessário
+    (function(){
+      function report(label, ok, detail){
+        const prefix = ok ? '✓' : '✗';
+        const msg = `[TEST] ${prefix} ${label}` + (detail ? ` — ${detail}` : '');
+        (ok ? console.log : console.warn)(msg);
+      }
+      // Teste 1: Tailwind disponível
+      report('Tailwind disponível', !!window.tailwind);
+      // Teste 2: Toggle do menu
+      (function(){
+        const btn = document.querySelector('[data-testid="menuBtn"]');
+        const menu = document.querySelector('[data-testid="mobileMenu"]');
+        if (btn && menu) {
+          const before = menu.classList.contains('hidden');
+          btn.click();
+          const toggled = menu.classList.contains('hidden') !== before;
+          btn.click(); // desfaz
+          report('Menu móvel alterna visibilidade', toggled);
+        } else {
+          report('Elementos do menu encontrados', false, 'btn ou menu não disponível');
+        }
+      })();
+      // Teste 3: Form configurado para mailto
+      (function(){
+        const form = document.querySelector('[data-testid="formContato"]');
+        const action = form?.getAttribute('action') || '';
+        const ok = !!form && /^mailto:/i.test(action);
+        report('Formulário configurado para mailto', ok, action || 'sem action');
+      })();
+      // Teste 4: Link do WhatsApp válido
+      (function(){
+        const wa = document.querySelector('a[href^="https://wa.me/"]');
+        const ok = !!wa && /\/\d{11,13}$/.test(wa.getAttribute('href'));
+        report('Link de WhatsApp parece válido', ok, wa?.getAttribute('href'));
+      })();
+      // Teste 5: JSON-LD com domínio www
+      (function(){
+        const node = document.querySelector('script[type="application/ld+json"]');
+        let ok = false, url = '';
+        try { const data = JSON.parse(node.textContent || '{}'); url = data.url || ''; ok = /https:\/\/www\.jmaequipamentos\.com\.br/.test(url); } catch(_) {}
+        report('JSON-LD usa https://www.jmaequipamentos.com.br', ok, url);
+      })();
+      // Teste 6: Supressão de erros Web3 (MetaMask)
+      (function(){
+        const before = window.__web3ErrorsIgnored || 0;
+        Promise.reject(new Error('Failed to connect to MetaMask'));
+        setTimeout(() => {
+          const after = window.__web3ErrorsIgnored || 0;
+          report('Supressão de erros Web3 ativa', after > before, `ignorados=${after}`);
+        }, 0);
+      })();
+    })();
+  </script>
+</body>
+</html>
